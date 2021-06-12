@@ -1,6 +1,6 @@
 # TS-sorting-algorithms 🚀
 
-Various sorting algorithms written in TypeScript.
+Various number sorting algorithms written in TypeScript.
 
 ## Installation
 
