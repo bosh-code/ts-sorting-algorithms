@@ -2,7 +2,7 @@
   "name": "sorting-algorithms",
   "version": "0.0.1",
   "description": "for presentation",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "start": "npm-run-all build demo",
     "demo": "node dist/index.js",
