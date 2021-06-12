@@ -2,18 +2,24 @@
 import chalk from 'chalk'
 
 export let swapCount = 0
+
 export function mergeSort (arr: number[], verbose = false): number[] {
-  console.log('Slicing!', arr)
   if (arr.length < 2) {
     return arr
   }
+
   const midPoint = Math.floor(arr.length / 2)
   const leftArr = arr.slice(0, midPoint)
   const rightArr = arr.slice(midPoint)
-  return merge(mergeSort(leftArr), mergeSort(rightArr))
+
+  if (verbose) console.log(chalk.grey(`Slicing array: ${arr} at: ${arr[midPoint]}, leftArr: ${leftArr} | rightArr: ${rightArr}`))
+
+  return merge(mergeSort(leftArr, verbose), mergeSort(rightArr, verbose), verbose)
 }
 
-function merge (leftArr: number[], rightArr: number[]): number[] {
+function merge (leftArr: number[], rightArr: number[], verbose = false): number[] {
+  if (verbose) console.log(chalk.grey(`Merging arrays: ${leftArr} and: ${rightArr}`))
+
   const result = []
 
   let lIndex = 0
@@ -21,16 +27,19 @@ function merge (leftArr: number[], rightArr: number[]): number[] {
   while (lIndex < leftArr.length && rIndex < rightArr.length) {
     if (leftArr[lIndex] < rightArr[rIndex]) {
       result.push(leftArr[lIndex])
+
+      if (verbose) console.log('Pushing:', chalk.yellow(leftArr[lIndex]), 'from leftArr:', chalk.yellow(result))
+
       lIndex++
       ++swapCount
-      console.log('Left Swapping!')
     } else {
       result.push(rightArr[rIndex])
+
+      if (verbose) console.log('Pushing:', chalk.yellow(rightArr[rIndex]), 'from rightArr:', chalk.yellow(result))
+
       rIndex++
       ++swapCount
-      console.log('Right Swapping!')
     }
   }
-  console.log(chalk.bold('Total number of swaps:', chalk.green(swapCount)))
   return result.concat(leftArr.slice(lIndex)).concat(rightArr.slice(rIndex))
 }
