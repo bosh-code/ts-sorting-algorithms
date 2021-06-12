@@ -23,7 +23,7 @@ ___
 The npm scripts for the project are:
 
 ```json5
-  {
+{
   "start": "npm-run-all build demo",
   "demo": "node dist/index.js",
   "lint": "eslint . --ext .ts",
