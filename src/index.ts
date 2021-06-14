@@ -3,11 +3,13 @@ import { selectionSort, swapCount as selectionCount } from './selectionSort'
 import { insertionSort, swapCount as insertionCount } from './insertionSort'
 import { mergeSort, swapCount as mergeCount } from './mergeSort'
 import { quickSort, swapCount as quickCount } from './quickSort'
+import { bogoSort, swapCount as bogoCount } from './bogoSort'
 import chalk from 'chalk'
 
 const createArr = (): number[] => {
   // return [4, 7, 1, -2, 9, 2, 5, 3, 0, 1, -10, 9, 8, -5]
   return [2, 6, 5, 12, -1, 3, 8, 7, 1, -4, 0, 23, 1, -55, 20, 37, 54, 210, -23, 7, 483, 9339, 29, -3, 90, -2, 81, 54, 7372, -92, 93, 93, 18, -43, 21]
+  // return [2, 1, 1, -1]
 }
 
 const verbose = false
@@ -49,7 +51,14 @@ console.log('Numbers after quick sort: ', chalk.green(quickSort(quickArr, 0, qui
 console.log(chalk.bold('Total number of operations:', chalk.green(quickCount)))
 console.log(chalk.italic('Quick sorting is very popular and frequently used. It runs in O(n log n) time.\n'))
 
+const bogoArr = [2, 1, 1, -1, 6, 7]
+console.log(chalk.blue('Bogo sort!'))
+console.log('Numbers to sort: ', chalk.red(bogoArr))
+console.log('Numbers after quick sort: ', chalk.green(bogoSort(bogoArr)))
+console.log(chalk.bold('Total number of operations:', chalk.green(bogoCount)))
+console.log(chalk.italic('Never use this. It runs in O(1) time.\n'))
+
 console.log(chalk.italic(' - Verbose output is currently', chalk.yellow(verbose)))
 console.log(chalk.italic(' - The default for all methods is', chalk.yellow(false)))
-console.log(chalk.italic(' - Output from merge sorting is', chalk.bold('huge,'), 'pass', chalk.yellow(true), 'to the function call on line 41 at your own risk!'))
+console.log(chalk.italic(' - Output from merge & bogo sorting is', chalk.bold('huge,'), 'pass', chalk.yellow(true), 'to the function calls at your own risk!'))
 console.log(chalk.italic(' - The total number of operations displayed for each sort is', chalk.bold('not'), 'an indication of performance, just an interesting metric.'))
