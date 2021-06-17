@@ -4,7 +4,7 @@ Various number sorting algorithms written in TypeScript.
 
 ## Installation
 
-Use [git](https://git-scm.com/downloads) to clone the [repo.](https://github.com/bosh-code/tic-tac-toe)
+Use [git](https://git-scm.com/downloads) to clone the [repo.](https://github.com/bosh-code/ts-sorting-algorithms)
 
 ```shell
 git clone https://github.com/bosh-code/ts-sorting-algorithms.git
